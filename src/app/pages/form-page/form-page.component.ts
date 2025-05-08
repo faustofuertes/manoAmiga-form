@@ -84,7 +84,7 @@ export class FormPageComponent {
 
         this._myUsuService.getUsuarioXId(decoded.sub).subscribe(data => {
           this.usuario = data;
-          if (this.usuario) {
+          if (this.usuario && this.usuario._id && this.usuario.name) {
             this._router.navigate(['/ya-registrado']);
           }
 
@@ -98,7 +98,13 @@ export class FormPageComponent {
             email: decoded.email
           }
 
-          this._myUsuService.postUsuario(this.usuario).subscribe(() => {
+          this._myUsuService.postUsuario(this.usuario).subscribe(data => {
+
+            if (data && data._id && data.name) {
+              localStorage.setItem('userID', data._id);
+              localStorage.setItem('userName', data.name);
+            }
+
 
           });
         });
