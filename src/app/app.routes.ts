@@ -6,7 +6,8 @@ import { AlreadyRegisteredComponent } from './pages/already-registered/already-r
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
-    { path: 'home', component: FormPageComponent },
+    { path: 'formulario', component: FormPageComponent },
     { path: 'registrado-correctamente', component: SuccesfulRegisteredComponent },
-    { path: 'ya-registrado', component: AlreadyRegisteredComponent }
+    { path: 'ya-registrado', component: AlreadyRegisteredComponent },
+    { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
