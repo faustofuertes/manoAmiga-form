@@ -12,7 +12,7 @@ export class HomeComponent {
   isAuthenticated = false;
 
   constructor(
-    public _auth: AuthService ,
+    public _auth: AuthService,
     private _router: Router
   ) { }
 
@@ -20,7 +20,7 @@ export class HomeComponent {
     this._auth.isAuthenticated$.subscribe(result => {
       this.isAuthenticated = result;
       if (this.isAuthenticated) {
-        this._router.navigate(['/home']);
+        this._router.navigate(['/ya-registrado']);
       }
     })
   }
