@@ -48,7 +48,7 @@
     padding: 3rem;
     border-radius: 30px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
-                rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+        rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
     text-align: left;
 }
 
@@ -61,8 +61,29 @@
     font-size: 18px;
 }
 
-.color{
+.color {
     font-weight: 600;
+    color: #806545;
+}
+
+.btn-home {
+    padding: 1rem 2rem;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: 600;
+    background-color: #806545;
+    color: white;
+    border: 1px solid transparent;
+    transition: 0.3s;
+    text-align: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
+        rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+        margin-top: 3rem;
+}
+
+.btn-home:hover {
+    background-color: white;
+    border: 1px solid #806545;
     color: #806545;
 }
 

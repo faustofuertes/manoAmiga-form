@@ -65,8 +65,9 @@
 
             <div class="form-group">
                 <label for="description"><span class="color">Descripción</span> de tu aviso</label>
+                <label class="min" for="description">(Minimo 20 palabras)</label>
                 <textarea
-                    placeholder="(Mínimo 20 palabras)"
+                    placeholder="Ej: Realizo trabajos de plomería en cocinas y baños. Experiencia, responsabilidad y precios accesibles. Disponibilidad inmediata en toda la ciudad."
                     id="description" formControlName="description"></textarea>
             </div>
 
@@ -154,7 +155,8 @@
     @if(currentStep === 5) {
     <div class="left">
         <h2><i class="fas fa-lightbulb"></i>A saber</h2>
-        <p>A este número se contactaron tus potenciales clientes contigo.</p>
+        <p>Ingresá tu número empezando con el código de Mar del Plata <strong>223</strong>, seguido de tu número sin el
+            15 ni símbolos. Ejemplo: <strong>2231234567</strong>.</p>
     </div>
 
     <div class="right">
@@ -171,7 +173,7 @@
 
             <div class="form-group">
                 <label for="phone"><span class="color">Número</span> de contacto</label>
-                <input id="phone" formControlName="phone" type="text" placeholder="Ej: 223-XXXXXXX" />
+                <input id="phone" formControlName="phone" type="text" placeholder="Ej: 2231234567" />
             </div>
 
         </form>
