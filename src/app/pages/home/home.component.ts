@@ -20,7 +20,7 @@ export class HomeComponent {
     this._auth.isAuthenticated$.subscribe(result => {
       this.isAuthenticated = result;
       if (this.isAuthenticated) {
-        this._router.navigate(['/ya-registrado']);
+        this._router.navigate(['/form']);
       }
     })
   }
