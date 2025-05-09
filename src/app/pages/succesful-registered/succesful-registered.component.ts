@@ -16,7 +16,10 @@ export class SuccesfulRegisteredComponent {
   ) { }
 
   logOut() {
+    // Cerrar sesión en Auth0
     this._auth.logout();
-    this._router.navigate(['/home']);
+
+    // Redirigir manualmente después de cerrar sesión
+    window.location.href = window.location.origin; // O la URL que quieras redirigir
   }
 }

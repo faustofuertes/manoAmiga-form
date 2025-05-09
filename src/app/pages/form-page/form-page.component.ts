@@ -10,7 +10,6 @@ import { AuthService } from '@auth0/auth0-angular';
 import { MyToken } from '../../interfaces/my-token';
 import { jwtDecode } from 'jwt-decode';
 
-
 @Component({
   selector: 'app-form-page',
   imports: [CommonModule, ReactiveFormsModule],
@@ -24,6 +23,8 @@ export class FormPageComponent {
   usuario?: Usuario;
 
   currentStep = 1;
+
+  isLoading = true;
 
   step1Form: FormGroup;
   step2Form: FormGroup;
@@ -75,7 +76,6 @@ export class FormPageComponent {
   }
 
   ngOnInit(): void {
-
     this._auth.idTokenClaims$.subscribe(claims => {
       const token = claims?.__raw;
 
@@ -84,32 +84,33 @@ export class FormPageComponent {
 
         this._myUsuService.getUsuarioXId(decoded.sub).subscribe(data => {
           this.usuario = data;
+
           if (this.usuario && this.usuario._id && this.usuario.name) {
             this._router.navigate(['/ya-registrado']);
           }
 
-
+          this.isLoading = false;
         }, error => {
-          console.log('No existe ese usuario.')
+          console.log('No existe ese usuario.');
 
           this.usuario = {
             auth0Id: decoded.sub,
             name: decoded.name,
             email: decoded.email
-          }
+          };
 
           this._myUsuService.postUsuario(this.usuario).subscribe(data => {
-
             if (data && data._id && data.name) {
               localStorage.setItem('userID', data._id);
               localStorage.setItem('userName', data.name);
             }
 
-
+            this.isLoading = false;
           });
         });
+      } else {
+        this.isLoading = false;
       }
-
     });
   }
 
@@ -122,9 +123,7 @@ export class FormPageComponent {
   }
 
   onSubmit() {
-
     if (this.step1Form.valid && this.step2Form.valid) {
-
       const publicacion: Publicacion = {
         userId: localStorage.getItem('userID'),
         userName: localStorage.getItem('userName'),
@@ -138,7 +137,7 @@ export class FormPageComponent {
       };
 
       this._myPubliService.postPublicacion(publicacion).subscribe(() => {
-        this._router.navigate(['/registrado-correctamente'])
+        this._router.navigate(['/registrado-correctamente']);
       });
     }
   }
