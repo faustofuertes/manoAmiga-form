@@ -1,9 +1,9 @@
 import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter, RouterModule } from '@angular/router';
 import { provideAuth0 } from '@auth0/auth0-angular';
-
 import { routes } from './app.routes';
 import { HttpClient, HttpClientModule, provideHttpClient } from '@angular/common/http';
+
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -20,3 +20,4 @@ export const appConfig: ApplicationConfig = {
     })
   ]
 };
+

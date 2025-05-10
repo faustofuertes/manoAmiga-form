@@ -6,15 +6,12 @@
     <div class="form-container">
 
         @if(currentStep === 1) {
-
-        <div class="left">
+        <div class="left fade-slide-in">
             <h2><i class="fas fa-lightbulb"></i>A saber</h2>
-            <p>En este paso, ingresá el trabajo que ofrecés y la ubicación donde se realizará. Actualmente, Mano
-                Amiga © está disponible solo en Mar del Plata.</p>
+            <p>En este paso, ingresá el trabajo que ofrecés y la ubicación donde se realizará. Actualmente, Mano Amiga © está disponible solo en Mar del Plata.</p>
         </div>
 
-        <div class="right">
-
+        <div class="right fade-slide-in">
             <div class="bar-progres">
                 <div class="bar bar-1 bar-color"></div>
                 <div class="bar bar-2"></div>
@@ -33,31 +30,25 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="location">¿En <span class="color">dónde</span>? <i
-                            class="fas fa-map-marker-alt"></i></label>
+                    <label for="location">¿En <span class="color">dónde</span>? <i class="fas fa-map-marker-alt"></i></label>
                     <select id="location" formControlName="location" name="location">
                         <option value="" disabled selected>Selecciona una ciudad</option>
                         <option *ngFor="let location of locations" [value]="location">{{ location }}</option>
                     </select>
                 </div>
 
-                <button class="btn-forward" type="button" (click)="nextStep()"
-                    [disabled]="step1Form.invalid">Siguiente</button>
+                <button class="btn-forward" type="button" (click)="nextStep()" [disabled]="step1Form.invalid">Siguiente</button>
             </form>
-
         </div>
         }
 
         @if(currentStep === 2) {
-
-        <div class="left">
+        <div class="left fade-slide-in">
             <h2><i class="fas fa-lightbulb"></i>A saber</h2>
-            <p>La descripción es lo primero que verá quien visite tu perfil. Usala para destacar tus habilidades,
-                experiencia y forma de trabajo. Ayuda a generar confianza y a que te elijan.</p>
+            <p>La descripción es lo primero que verá quien visite tu perfil. Usala para destacar tus habilidades, experiencia y forma de trabajo. Ayuda a generar confianza y a que te elijan.</p>
         </div>
 
-        <div class="right">
-
+        <div class="right fade-slide-in">
             <div class="bar-progres">
                 <div class="bar bar-1 bar-color"></div>
                 <div class="bar bar-2 bar-color"></div>
@@ -67,33 +58,26 @@
             </div>
 
             <form [formGroup]="step2Form">
-
                 <div class="form-group">
                     <label for="description"><span class="color">Descripción</span> de tu aviso</label>
                     <label class="min" for="description">(Minimo 20 palabras)</label>
-                    <textarea
-                        placeholder="Ej: Realizo trabajos de plomería en cocinas y baños. Experiencia, responsabilidad y precios accesibles. Disponibilidad inmediata en toda la ciudad."
-                        id="description" formControlName="description"></textarea>
+                    <textarea placeholder="Ej: Realizo trabajos de plomería en cocinas y baños..." id="description" formControlName="description"></textarea>
                 </div>
-
             </form>
             <div class="btn-container">
                 <button class="btn-back" type="button" (click)="previousStep()">Volver</button>
-                <button class="btn-forward" type="button" (click)="nextStep()"
-                    [disabled]="step2Form.invalid">Siguiente</button>
+                <button class="btn-forward" type="button" (click)="nextStep()" [disabled]="step2Form.invalid">Siguiente</button>
             </div>
         </div>
         }
 
         @if(currentStep === 3) {
-
-        <div class="left">
+        <div class="left fade-slide-in">
             <h2><i class="fas fa-lightbulb"></i>A saber</h2>
             <p>Podés elegir tu tarifa de visita y modificarla cuando lo desees.</p>
         </div>
 
-        <div class="right">
-
+        <div class="right fade-slide-in">
             <div class="bar-progres">
                 <div class="bar bar-1 bar-color"></div>
                 <div class="bar bar-2 bar-color"></div>
@@ -103,29 +87,25 @@
             </div>
 
             <form [formGroup]="step3Form">
-
                 <div class="form-group">
                     <label for="pricing"><span class="color">Tarifa</span> de visita</label>
                     <input placeholder="15000" id="pricing" formControlName="pricing" type="number" />
                 </div>
-
             </form>
             <div class="btn-container">
                 <button class="btn-back" type="button" (click)="previousStep()">Volver</button>
-                <button class="btn-forward" type="button" (click)="nextStep()"
-                    [disabled]="step3Form.invalid">Siguiente</button>
+                <button class="btn-forward" type="button" (click)="nextStep()" [disabled]="step3Form.invalid">Siguiente</button>
             </div>
         </div>
         }
 
         @if(currentStep === 4) {
-        <div class="left">
+        <div class="left fade-slide-in">
             <h2><i class="fas fa-lightbulb"></i>A saber</h2>
             <p>Podés seleccionar tus horarios de trabajo y ajustarlos cuando lo necesites.</p>
         </div>
 
-        <div class="right">
-
+        <div class="right fade-slide-in">
             <div class="bar-progres">
                 <div class="bar bar-1 bar-color"></div>
                 <div class="bar bar-2 bar-color"></div>
@@ -135,38 +115,31 @@
             </div>
 
             <form [formGroup]="step4Form">
-
                 <div class="form-group">
                     <label for="schedule"><span class="color">Horarios</span> de trabajo</label>
-                    <input id="schedule" formControlName="schedule" type="text"
-                        placeholder="Ej: Lunes a Viernes 8:00 a 16:00" />
+                    <input id="schedule" formControlName="schedule" type="text" placeholder="Ej: Lunes a Viernes 8:00 a 16:00" />
                 </div>
 
                 <div class="form-group">
                     <label for="experience">Años de <span class="color">experiencia</span></label>
                     <input id="experience" formControlName="experience" type="number" placeholder="Ej: 10" />
                 </div>
-
             </form>
 
             <div class="btn-container">
                 <button class="btn-back" type="button" (click)="previousStep()">Volver</button>
-                <button class="btn-forward" type="button" (click)="nextStep()"
-                    [disabled]="step4Form.invalid">Siguiente</button>
+                <button class="btn-forward" type="button" (click)="nextStep()" [disabled]="step4Form.invalid">Siguiente</button>
             </div>
         </div>
         }
 
         @if(currentStep === 5) {
-        <div class="left">
+        <div class="left fade-slide-in">
             <h2><i class="fas fa-lightbulb"></i>A saber</h2>
-            <p>Ingresá tu número empezando con el código de Mar del Plata <strong>223</strong>, seguido de tu número sin
-                el
-                15 ni símbolos. Ejemplo: <strong>2231234567</strong>.</p>
+            <p>Ingresá tu número empezando con el código de Mar del Plata <strong>223</strong>, seguido de tu número sin el 15 ni símbolos. Ejemplo: <strong>2231234567</strong>.</p>
         </div>
 
-        <div class="right">
-
+        <div class="right fade-slide-in">
             <div class="bar-progres">
                 <div class="bar bar-1 bar-color"></div>
                 <div class="bar bar-2 bar-color"></div>
@@ -176,17 +149,14 @@
             </div>
 
             <form [formGroup]="step5Form">
-
                 <div class="form-group">
                     <label for="phone"><span class="color">Número</span> de contacto</label>
                     <input id="phone" formControlName="phone" type="text" placeholder="Ej: 2231234567" />
                 </div>
-
             </form>
             <div class="btn-container">
                 <button class="btn-back" type="button" (click)="previousStep()">Volver</button>
-                <button class="btn-forward" type="button" (click)="onSubmit()"
-                    [disabled]="step5Form.invalid">Publicar</button>
+                <button class="btn-forward" type="button" (click)="onSubmit()" [disabled]="step5Form.invalid">Publicar</button>
             </div>
         </div>
         }

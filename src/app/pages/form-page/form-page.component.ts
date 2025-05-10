@@ -12,6 +12,7 @@ import { jwtDecode } from 'jwt-decode';
 
 @Component({
   selector: 'app-form-page',
+  standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './form-page.component.html',
   styleUrl: './form-page.component.css'
@@ -115,11 +116,15 @@ export class FormPageComponent {
   }
 
   nextStep() {
-    this.currentStep++;
+    if (this.currentStep < 5) {
+      this.currentStep++;
+    }
   }
 
   previousStep() {
-    this.currentStep--;
+    if (this.currentStep > 1) {
+      this.currentStep--;
+    }
   }
 
   onSubmit() {
