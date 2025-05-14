@@ -18,7 +18,7 @@ import { jwtDecode } from 'jwt-decode';
   styleUrl: './form-page.component.css'
 })
 export class FormPageComponent {
-  jobs: string[] = ['Electricista', 'Plomero', 'Jardinero', 'Pintor', 'Cerrajero', 'TecnicoAA', 'TecncioLR', 'TecnicoLV', 'Carpintero', 'Limpieza'];
+  jobs: string[] = ['Electricista', 'Plomero', 'Jardinero', 'Pintor', 'Cerrajero', 'Tecnico', 'Carpintero', 'Limpieza'];
   locations: string[] = ['Mar del Plata'];
 
   usuario?: Usuario;
