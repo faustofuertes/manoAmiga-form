@@ -236,7 +236,42 @@ form {
   }
 }
 
-
+.btn-forward {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .btn-forward.loading {
+    pointer-events: none;
+    opacity: 0.8;
+  }
+  
+  .btn-text {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .progress-bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.3); /* barra blanca transparente */
+    width: 0%;
+    z-index: 1;
+    animation: fillBar 1.5s ease-in-out forwards;
+  }
+  
+  @keyframes fillBar {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+  
+  
 
 @media (max-width: 768px) {
     .form-container {

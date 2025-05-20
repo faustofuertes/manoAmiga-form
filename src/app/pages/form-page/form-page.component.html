@@ -169,7 +169,12 @@
             <div class="btn-container">
                 <button class="btn-back" type="button" (click)="previousStep()">Volver</button>
                 <button class="btn-forward" type="button" (click)="onSubmit()"
-                    [disabled]="step5Form.invalid">Publicar</button>
+                    [disabled]="step5Form.invalid || isSubmitting" [class.loading]="isSubmitting">
+                    <span class="btn-text" *ngIf="!isSubmitting">Publicar</span>
+                    <span class="btn-text" *ngIf="isSubmitting">Publicando...</span>
+                    <span class="progress-bar" *ngIf="isSubmitting"></span>
+                </button>
+
             </div>
         </div>
         }

@@ -26,6 +26,8 @@ export class FormPageComponent {
   currentStep = 1;
 
   isLoading = true;
+  isSubmitting = false;
+
 
   step1Form: FormGroup;
   step2Form: FormGroup;
@@ -128,7 +130,9 @@ export class FormPageComponent {
   }
 
   onSubmit() {
+    this.isSubmitting = true;
     if (this.step1Form.valid && this.step2Form.valid) {
+
       const publicacion: Publicacion = {
         userId: localStorage.getItem('userID'),
         userName: localStorage.getItem('userName'),
@@ -143,6 +147,7 @@ export class FormPageComponent {
 
       this._myPubliService.postPublicacion(publicacion).subscribe(() => {
         this._router.navigate(['/registrado-correctamente']);
+        this.isSubmitting = false;
       });
     }
   }
